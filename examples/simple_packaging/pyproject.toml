@@ -36,9 +36,9 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023"
-Documentation = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023"
-"Bug Tracker" = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023/issues"
+Homepage = "https://github.com/matthewfeickert-talks/talk-urssi-summer-school-2024"
+Documentation = "https://github.com/matthewfeickert-talks/talk-urssi-summer-school-2024"
+"Bug Tracker" = "https://github.com/matthewfeickert-talks/talk-urssi-summer-school-2024/issues"
 
 [tool.hatch.version]
 source = "vcs"
