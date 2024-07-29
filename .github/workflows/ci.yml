@@ -156,11 +156,13 @@ jobs:
         pipx run twine check --strict dist/*
 
     - name: List contents of sdist
+      if: matrix.os != 'windows-latest'
       run: |
         cd examples/compiled_packaging
         python -m tarfile --list dist/rosen_cpp-*.tar.gz
 
     - name: List contents of wheel
+      if: matrix.os != 'windows-latest'
       run: |
         cd examples/compiled_packaging
         python -m zipfile --list dist/rosen_cpp-*.whl
