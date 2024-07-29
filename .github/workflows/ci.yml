@@ -29,7 +29,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -58,7 +58,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -105,7 +105,7 @@ jobs:
         pytest tests/
 
     - name: Upload simple packaging dists
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: simple_packaging
         path: examples/simple_packaging/dist/
@@ -125,7 +125,7 @@ jobs:
         fetch-depth: 0
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -172,7 +172,7 @@ jobs:
         pytest tests/
 
     - name: Upload compiled packaging dists
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: compiled_packaging
         path: examples/compiled_packaging/dist/
