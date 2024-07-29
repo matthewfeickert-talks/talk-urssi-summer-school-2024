@@ -8,20 +8,20 @@ count: false
 [matthew.feickert@cern.ch](mailto:matthew.feickert@cern.ch)
 <br>
 
-ORIGINS Data Science Lab Forum
+[URSSI Summer School on Research Software and Open Science](https://github.com/si2-urssi/summerschool-July2024)
 
-September 8th, 2023
+July 29th, 2024
 
 ---
 # My motivations on this topic
 
 .kol-1-2[
 .large[
-* Postdoc in high energy physics and data science at University of Wisconsin-Madison Data Science Institute
+* Research scientist in high energy physics and data science at University of Wisconsin-Madison Data Science Institute
 * Analysis Systems area lead for IRIS-HEP
 * Member of ATLAS collaboration
-   - Happy collaborator of TUM ATLAS group!
 * Administrator of Scikit-HEP community organization
+* Community member of the Scientific Python project
 * Care about .bold[reusable] open science to be able to push physics forward at the .bold[community scale]
 ]
 ]
@@ -55,7 +55,7 @@ Princeton University, IRIS-HEP, PyPA, Scikit-Build
 
 [Angus Hollands](https://github.com/agoose77)
 
-Princeton University, The Executable Books Project
+2i2c, The Executable Books Project, MyST
 ]
 ]
 
