@@ -192,7 +192,7 @@ The .blue[good news]: Python packaging has improved .bold[dramatically] in the l
 The .red[bad news]: Python packaging has expanded .bold[dramatically] in the last 5 years
 ]
 
-* By cratering standards the PyPA allowed for an ecosystem of packaging backends to be created to tackle various problems (this is good!)
+* By creating standards the PyPA allowed for an ecosystem of packaging backends to be created to tackle various problems (this is good!)
 * This means that our The Zen of Python expectations are violated and we need to make design choices (hard for beginners)
 
 ---
