@@ -148,6 +148,8 @@ jobs:
       if: matrix.os == 'windows-latest'
       run: |
         cd examples/compiled_packaging
+        ls -lhtra
+        tree .
         rm src/rosen_cpp/_version.py -force
         rm build -r -force
 
