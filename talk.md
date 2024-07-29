@@ -228,7 +228,7 @@ The .green[okay news]: You can probably default to the simplest thing
 ---
 # Simple packaging example
 
-.huge[Modern [PEP 518](https://peps.python.org/pep-0518/) compliant build backends just need a single file: `pyproject.toml`]
+.huge[Modern [PEP 518](https://peps.python.org/pep-0518/) compliant build backends just need a single file: [`pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)]
 
 ```
 $ tree examples/simple_packaging
@@ -445,7 +445,7 @@ build-backend = "scikit_build_core.build"
 # Packaging compiled extensions
 
 .huge[
-.bold[`CMakeLists.txt`]:
+[.bold[`CMakeLists.txt`]](https://cliutils.gitlab.io/modern-cmake/):
 ]
 
 .large[
