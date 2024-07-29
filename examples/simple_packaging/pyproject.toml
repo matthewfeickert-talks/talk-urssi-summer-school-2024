@@ -1,0 +1,52 @@
+[build-system]
+requires = [
+    "hatchling>=1.13.0",
+    "hatch-vcs>=0.3.0",
+]
+build-backend = "hatchling.build"
+
+[project]
+name = "rosen"
+dynamic = ["version"]
+description = "Example package for demonstration"
+readme = "README.md"
+license = { text = "MIT" }  # SPDX short identifier
+authors = [
+  { name = "Matthew Feickert", email = "matthew.feickert@cern.ch" },
+]
+maintainers = [
+  { name = "Matthew Feickert", email = "matthew.feickert@cern.ch" },
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "scipy>=1.6.0",
+    "numpy",  # compatible versions controlled through scipy
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.urls]
+Homepage = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023"
+Documentation = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023"
+"Bug Tracker" = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023/issues"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.version.raw-options]
+local_scheme = "no-local-version"
+# Need to give root as we aren't at the same level as the git repo
+root = "../.."
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/rosen/_version.py"

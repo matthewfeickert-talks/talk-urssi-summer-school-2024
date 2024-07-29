@@ -1,0 +1,178 @@
+name: CI
+
+on:
+  push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  edit_sys_path:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['3.x']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip wheel
+        python -m pip install --upgrade scipy
+
+    - name: Run code with sys path edited
+      run: |
+        cd examples/edit_sys_path
+        python example.py
+
+  simple:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['3.x']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Local install
+      run: |
+        python -m pip install --upgrade pip wheel
+        cd examples/simple_packaging
+        python -m pip install .
+
+    - name: List installed Python packages
+      run: python -m pip list
+
+    - name: Cleanup to have dist build be as clean as possible
+      run: |
+        cd examples/simple_packaging
+        rm -rf src/rosen/_version.py
+        rm -rf build
+
+    - name: Build a sdist and wheel
+      run: |
+        cd examples/simple_packaging
+        python -m pip install --upgrade build
+        python -m build .
+
+    - name: Verify the distribution
+      run: |
+        cd examples/simple_packaging
+        pipx run twine check --strict dist/*
+
+    - name: List contents of sdist
+      run: |
+        cd examples/simple_packaging
+        python -m tarfile --list dist/rosen-*.tar.gz
+
+    - name: List contents of wheel
+      run: |
+        cd examples/simple_packaging
+        python -m zipfile --list dist/rosen-*.whl
+
+    - name: Run tests with pytest
+      run: |
+        python -m pip install --upgrade pytest
+        cd examples/simple_packaging
+        pytest tests/
+
+    - name: Upload simple packaging dists
+      uses: actions/upload-artifact@v3
+      with:
+        name: simple_packaging
+        path: examples/simple_packaging/dist/
+
+  compiled:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        python-version: ['3.x']
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Local install
+      run: |
+        python -m pip install --upgrade pip wheel
+        cd examples/compiled_packaging
+        python -m pip install .
+
+    - name: List installed Python packages
+      run: python -m pip list
+
+    - name: Cleanup to have dist build be as clean as possible
+      run: |
+        cd examples/compiled_packaging
+        rm -rf src/rosen_cpp/_version.py
+        rm -rf build
+
+    - name: Build a sdist and wheel
+      run: |
+        cd examples/compiled_packaging
+        python -m pip install --upgrade build
+        python -m build .
+
+    - name: Verify the distribution
+      run: |
+        cd examples/compiled_packaging
+        pipx run twine check --strict dist/*
+
+    - name: List contents of sdist
+      run: |
+        cd examples/compiled_packaging
+        python -m tarfile --list dist/rosen_cpp-*.tar.gz
+
+    - name: List contents of wheel
+      run: |
+        cd examples/compiled_packaging
+        python -m zipfile --list dist/rosen_cpp-*.whl
+
+    - name: Run tests with pytest
+      run: |
+        python -m pip install --upgrade pytest
+        cd examples/compiled_packaging
+        pytest tests/
+
+    - name: Upload compiled packaging dists
+      uses: actions/upload-artifact@v3
+      with:
+        name: compiled_packaging
+        path: examples/compiled_packaging/dist/

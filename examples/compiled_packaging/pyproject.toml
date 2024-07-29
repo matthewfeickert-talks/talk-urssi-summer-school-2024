@@ -1,0 +1,57 @@
+[build-system]
+requires = [
+  "scikit-build-core>=0.5.0",
+  "pybind11>=2.10.0",
+  ]
+build-backend = "scikit_build_core.build"
+
+
+[project]
+name = "rosen-cpp"
+dynamic = ["version"]
+description = "Example package for demonstration"
+readme = "README.md"
+license = { text = "MIT" }  # SPDX short identifier
+authors = [
+  { name = "Matthew Feickert", email = "matthew.feickert@cern.ch" },
+]
+maintainers = [
+  { name = "Matthew Feickert", email = "matthew.feickert@cern.ch" },
+]
+requires-python = ">=3.8"
+
+dependencies = [
+    "scipy>=1.6.0",
+    "numpy",  # compatible versions controlled through scipy
+]
+
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Physics",
+]
+
+[project.urls]
+Homepage = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023"
+Documentation = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023"
+"Bug Tracker" = "https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023/issues"
+
+[tool.scikit-build]
+metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
+
+[tool.setuptools_scm]
+# Ignore the commit hash in version
+local_scheme = "no-local-version"
+# Need to give root as we aren't at the same level as the git repo
+root = "../.."
+
+[[tool.scikit-build.generate]]
+path = "rosen_cpp/_version.py"
+template = '''
+version = "${version}"
+'''
