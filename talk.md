@@ -345,7 +345,7 @@ Home-page:
 Author:
 Author-email: Matthew Feickert <matthew.feickert@cern.ch>
 License: MIT
-Location: ***/lib/python3.11/site-packages
+Location: ***/lib/python3.12/site-packages
 Requires: numpy, scipy
 Required-by:
 ```
