@@ -385,7 +385,7 @@ optimized_params = result.x
 ```
 $ python -m pip install --upgrade --editable .
 $ python -m pip show rosen | grep --ignore-case 'location'
-Location: ***/lib/python3.11/site-packages
+Location: ***/lib/python3.12/site-packages
 Editable project location: ***/examples/simple_packaging
 ```
 ]
