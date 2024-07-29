@@ -526,7 +526,7 @@ If your code is publicly available on the WWW in a Git repository, you've alread
 # General pattern is:
 # python -m pip install "project @ git+https://example.com/repo/project.git@branch#subdirectory=path"
 $ python -m pip install \
-  "git+https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023.git#subdirectory=examples/simple_packaging"
+  "git+https://github.com/matthewfeickert-talks/talk-urssi-summer-school-2024.git#subdirectory=examples/simple_packaging"
 ```
 ]
 
