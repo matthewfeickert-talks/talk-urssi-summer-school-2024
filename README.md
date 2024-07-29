@@ -6,6 +6,14 @@ Viewable online [here](https://matthewfeickert-talks.github.io/talk-urssi-summer
 
 A version of this talk was originally given as part of the [ORIGINS Data Science Lab Forum's 2023 seminar series](https://github.com/matthewfeickert-talks/talk-odsl-forum-seminar-2023).
 
+## Setup
+
+To ensure an environment that is able to build all the examples you can use the provided `environment.yml` file
+
+```console
+conda env create --yes --file environment.yml
+```
+
 ## Acknowledgments
 
 * [Matthew Feickert](http://www.matthewfeickert.com/) is supported by the US National Science Foundation under Cooperative Agreements [OAC-1836650](https://nsf.gov/awardsearch/showAward?AWD_ID=1836650) and [PHY-2323298](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2323298) ([IRIS-HEP](https://iris-hep.org/)).
