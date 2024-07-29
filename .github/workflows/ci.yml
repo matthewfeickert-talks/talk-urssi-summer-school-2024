@@ -80,8 +80,7 @@ jobs:
     - name: Build a sdist and wheel
       run: |
         cd examples/simple_packaging
-        python -m pip install --upgrade build
-        python -m build .
+        pipx run build --installer uv .
 
     - name: Verify the distribution
       run: |
@@ -147,8 +146,7 @@ jobs:
     - name: Build a sdist and wheel
       run: |
         cd examples/compiled_packaging
-        python -m pip install --upgrade build
-        python -m build .
+        pipx run build --installer uv .
 
     - name: Verify the distribution
       run: |
