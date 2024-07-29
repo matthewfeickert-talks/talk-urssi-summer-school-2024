@@ -138,10 +138,18 @@ jobs:
       run: python -m pip list
 
     - name: Cleanup to have dist build be as clean as possible
+      if: matrix.os != 'windows-latest'
       run: |
         cd examples/compiled_packaging
         rm -rf src/rosen_cpp/_version.py
         rm -rf build
+
+    - name: Cleanup to have dist build be as clean as possible
+      if: matrix.os == 'windows-latest'
+      run: |
+        cd examples/compiled_packaging
+        rm src/rosen_cpp/_version.py -force
+        rm build -r -force
 
     - name: Build a sdist and wheel
       run: |
