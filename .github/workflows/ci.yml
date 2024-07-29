@@ -180,5 +180,5 @@ jobs:
     - name: Upload compiled packaging dists
       uses: actions/upload-artifact@v4
       with:
-        name: compiled_packaging-${{ strategy.job-index }}
+        name: compiled_packaging-${{ matrix.os }}
         path: examples/compiled_packaging/dist/
