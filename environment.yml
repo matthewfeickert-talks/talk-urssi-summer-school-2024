@@ -1,0 +1,10 @@
+name: urssi-summer-school-2024-packaging
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - cmake >=3.15
+  - pytest >=7.0.0
+  - pip
+  - pip:
+    - build >=1.1.0
