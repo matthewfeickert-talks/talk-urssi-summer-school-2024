@@ -80,7 +80,7 @@ jobs:
     - name: Build a sdist and wheel
       run: |
         cd examples/simple_packaging
-        pipx run build --installer uv .
+        pipx run build .
 
     - name: Verify the distribution
       run: |
@@ -146,7 +146,7 @@ jobs:
     - name: Build a sdist and wheel
       run: |
         cd examples/compiled_packaging
-        pipx run build --installer uv .
+        pipx run build .
 
     - name: Verify the distribution
       run: |
