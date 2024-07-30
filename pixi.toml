@@ -1,0 +1,32 @@
+[project]
+name = "talk-urssi-summer-school-2024"
+version = "0.1.0"
+description = "Demonstration of pixi environment for compiled packages"
+authors = ["Matthew Feickert <matthew.feickert@cern.ch>"]
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-arm64", "osx-64", "win-64"]
+
+[tasks]
+build-simple = """
+cd examples/simple_packaging/ && \
+python -m build .
+"""
+
+build-compiled = """
+cd examples/compiled_packaging/ && \
+python -m build .
+"""
+
+[dependencies]
+python = "3.12.*"
+scipy = ">=1.14.0,<2"
+cmake = ">=3.30.1,<4"
+pytest = ">=8.3.2,<9"
+jupytext = ">=1.16.3,<2"
+
+[pypi-dependencies]
+# Install rosen from the simple_packaging example, and optionally as an editable install
+rosen = { path = "examples/simple_packaging", editable = true }
+# Install rosen-cpp from the compiled_packaging example
+rosen-cpp = { path = "examples/compiled_packaging" }
+build = ">=1.2.1, <2"

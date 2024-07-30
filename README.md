@@ -8,10 +8,26 @@ A version of this talk was originally given as part of the [ORIGINS Data Science
 
 ## Setup
 
+### Conda
+
 To ensure an environment that is able to build all the examples you can use the provided `environment.yml` file
 
 ```console
 conda env create --yes --file environment.yml
+```
+
+### pixi
+
+[Install `pixi`](https://pixi.sh/latest/#installation) and then from the top level of the repository run
+
+```
+pixi install
+```
+
+To enter into an interactive shell with the `pixi` environment activated run
+
+```
+pixi shell
 ```
 
 ## Acknowledgments
